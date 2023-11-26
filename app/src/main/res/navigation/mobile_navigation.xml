@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.milkmobileapp.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_milk"
+        android:name="com.example.milkmobileapp.ui.milk.MilkFragment"
+        android:label="@string/menu_milk"
+        tools:layout="@layout/fragment_milk" >
+        <action
+            android:id="@+id/action_nav_milk_to_createMilk"
+            app:destination="@id/createMilk" />
+        <action
+            android:id="@+id/action_nav_milk_to_editMilkFragment"
+            app:destination="@id/editMilkFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_contacts"
+        android:name="com.example.milkmobileapp.ui.contacts.ContactsFragment"
+        android:label="@string/menu_contacts"
+        tools:layout="@layout/fragment_contacts" >
+        <action
+            android:id="@+id/action_nav_contacts_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createMilk"
+        android:name="com.example.milkmobileapp.ui.createMilk.CreateMilkFragment"
+        android:label="@string/add_row"
+        tools:layout="@layout/fragment_create_milk" >
+        <action
+            android:id="@+id/action_editMilk_to_nav_milk"
+            app:destination="@id/nav_milk" />
+    </fragment>
+    <fragment
+        android:id="@+id/editMilkFragment"
+        android:name="com.example.milkmobileapp.ui.editMilk.EditMilkFragment"
+        android:label="@string/edit_row"
+        tools:layout="@layout/fragment_edit_milk" >
+        <action
+            android:id="@+id/action_editMilkFragment_to_nav_milk"
+            app:destination="@id/nav_milk" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.example.milkmobileapp.ui.map.MapsFragment"
+        android:label="Мапа"
+        tools:layout="@layout/fragment_maps" >
+        <action
+            android:id="@+id/action_mapsFragment_to_nav_contacts"
+            app:destination="@id/nav_contacts" />
+    </fragment>
+</navigation>
